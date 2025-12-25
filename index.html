@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi-Style Music Player (Beginner)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">MP</div>
+      <div>
+        <h1 class="title">Music Player</h1>
+        <p class="subtitle">Clean, responsive, beginner-friendly</p>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <button id="themeToggle" class="btn" type="button" aria-label="Toggle dark or light mode">
+        Theme
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="layout">
+    <section class="panel">
+      <div class="panel-header">
+        <div class="tabs" role="tablist" aria-label="Song filters">
+          <button id="tabAll" class="tab is-active" type="button" role="tab" aria-selected="true">
+            All
+          </button>
+          <button id="tabFav" class="tab" type="button" role="tab" aria-selected="false">
+            Favorites
+          </button>
+        </div>
+
+        <label class="search">
+          <span class="sr-only">Search songs</span>
+          <input id="searchInput" type="search" placeholder="Search by title or artist..." autocomplete="off" />
+        </label>
+      </div>
+
+      <div class="panel-tools">
+        <label class="file-add">
+          <span class="file-add-title">Add songs (optional)</span>
+          <input id="fileInput" type="file" accept="audio/*" multiple />
+        </label>
+
+        <p class="hint">
+          Tip: For best results, place your mp3 files in <code>assets/music/</code> and update <code>songs</code> in <code>app.js</code>.
+        </p>
+      </div>
+
+      <ul id="songList" class="song-list" aria-label="Song list">
+        <!-- JS renders songs here -->
+      </ul>
+    </section>
+
+    <section class="player" aria-label="Player">
+      <div class="card now-playing">
+        <div class="cover" aria-hidden="true"></div>
+
+        <div class="meta">
+          <p class="np-label">Now playing</p>
+          <h2 id="nowTitle" class="np-title">Select a song</h2>
+          <p id="nowArtist" class="np-artist">—</p>
+        </div>
+
+        <div class="actions">
+          <button id="favNowBtn" class="icon-btn" type="button" aria-label="Toggle favorite for current song" disabled>
+            ☆
+          </button>
+        </div>
+      </div>
+
+      <div class="card controls">
+        <audio id="audio" preload="metadata"></audio>
+
+        <div class="transport">
+          <button id="prevBtn" class="icon-btn" type="button" aria-label="Previous track" disabled>⟨⟨</button>
+          <button id="playBtn" class="play-btn" type="button" aria-label="Play" disabled>Play</button>
+          <button id="nextBtn" class="icon-btn" type="button" aria-label="Next track" disabled>⟩⟩</button>
+        </div>
+
+        <div class="timeline">
+          <span id="curTime" class="time" aria-label="Current time">0:00</span>
+          <label class="range-wrap" aria-label="Seek bar">
+            <input id="seek" type="range" min="0" max="100" value="0" step="0.1" />
+          </label>
+          <span id="durTime" class="time" aria-label="Duration">0:00</span>
+        </div>
+
+        <div class="volume">
+          <button id="muteBtn" class="icon-btn" type="button" aria-label="Mute or unmute" disabled>🔈</button>
+          <label class="range-wrap volume-range" aria-label="Volume">
+            <input id="vol" type="range" min="0" max="1" value="1" step="0.01" />
+          </label>
+        </div>
+
+        <p id="status" class="status" aria-live="polite"></p>
+      </div>
+
+      <div class="card help">
+        <h3 class="help-title">Beginner notes</h3>
+        <ul class="help-list">
+          <li>Use a local server (like VS Code Live Server) so audio paths load reliably.</li>
+          <li>Favorites + theme are saved in your browser (localStorage), not on GitHub.</li>
+          <li>“Add songs” from file picker works for this session, but those files won’t persist after refresh in a pure front-end app.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
