@@ -30,11 +30,7 @@ const statusEl = document.getElementById("status");
 
 /* 1) Example songs (you should replace file names to match /assets/music/) */
 let songs = [
-  { id: "s1", title: "Song One", artist: "Demo Artist", src: "assets/music/song1.mp3" },
-  { id: "s2", title: "Song Two", artist: "Demo Artist", src: "assets/music/song2.mp3" },
-  { id: "s3", title: "Song Three", artist: "Demo Artist", src: "assets/music/song3.mp3" },
-  { id: "s4", title: "Song Four", artist: "Demo Artist", src: "assets/music/song4.mp3" },
-  { id: "s5", title: "Song Five", artist: "Demo Artist", src: "assets/music/song5.mp3" },
+  
 ];
 
 /* App state */
@@ -397,3 +393,4 @@ function preloadDurationsFor(list) {
     });
   });
 }
+
